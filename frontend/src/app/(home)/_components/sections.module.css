@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Nova+Square&display=swap");
+
+.sectionsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+}
+
+.cell {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  transition: background 0.3s;
+}
+
+.cell:hover {
+  background: var(--hover-bg);
+}
+
+.cell:hover .img {
+  opacity: 0;
+}
+
+.cell:hover .label {
+  color: var(--text-color);
+}
+
+.img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition:
+    transform 0.6s,
+    opacity 0.3s;
+}
+
+.cellContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.1rem 1.3rem;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.label {
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: white;
+}
+
+.hoverText {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+  color: var(--text-color);
+  font-family: "Nova Square", cursive;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.cell:hover .hoverText {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .sectionsGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .cell {
+    height: 60vw;
+    min-height: 200px;
+  }
+}

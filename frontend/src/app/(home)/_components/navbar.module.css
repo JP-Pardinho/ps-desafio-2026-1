@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
+.navbar {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 2rem;
+    border-bottom: 1px solid rgba(240, 237, 232, 0.07);
+    flex-shrink: 0;
+}
+
+.destaque {
+    font-style: bold;
+    font-size: 1.8rem;
+    color: rgb(0, 255, 0);
+}
+
+.botao {
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Nova Square', cursive;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: black;
+    background: yellow;
+    padding: 0.45rem 1.2rem;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.botao:hover {
+    color: white;
+    background: rgb(80, 80, 0);
+}

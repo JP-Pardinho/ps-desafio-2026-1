@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Arimo } from 'next/font/google'
+import { Arimo, Nova_Square } from 'next/font/google'
 import '@/app/globals.css'
 import { Providers } from '@/providers/providers'
 import { Toaster as SonnerToaster } from '@/components/sonner'
@@ -8,9 +8,9 @@ import { Toaster } from '@/components/toaster'
 const arimo = Arimo({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Adapti Project Template',
-  description: 'Created by Adapti 2024',
-}
+  title: 'Street Brasil',
+  description: 'Loja de artigos esportivos do Brasil.',
+};
 
 export default async function RootLayout({
   children,

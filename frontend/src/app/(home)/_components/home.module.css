@@ -1,0 +1,39 @@
+.body {
+  /* --bg:           #00133a;
+  --text:         #f0ede8;
+  --muted:        rgba(240, 237, 232, 0.42);
+  --accent:       #e8521a;
+  --border:       rgba(240, 237, 232, 0.07);
+  --nav-h:        52px;
+  --font-display: 'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
+  --font-body:    'DM Sans', 'Helvetica Neue', Helvetica, sans-serif; */
+
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100vh - 52px);
+  gap: 2px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .body {
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow: visible;
+  }
+}
