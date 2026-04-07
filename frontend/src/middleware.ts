@@ -11,7 +11,7 @@ export default auth(async (req) => {
   }
 
   if (!permissions?.includes('admin') && pathname.startsWith('/admin')) {
-    return Response.redirect(new URL(getUrl('/auth/sign-in')))
+    return Response.redirect(new URL(getUrl('/loja/auth/sign-in')))
   }
 })
 
