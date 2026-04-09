@@ -6,7 +6,7 @@ export default auth(async (req) => {
   const permissions = req.auth?.user?.permissions
   const pathname = req.nextUrl.pathname
 
-  if (isLoggedIn && pathname === '/auth/sign-in') {
+  if (isLoggedIn && pathname === '/loja/auth/sign-in') {
     return Response.redirect(new URL(getUrl('/')))
   }
 
