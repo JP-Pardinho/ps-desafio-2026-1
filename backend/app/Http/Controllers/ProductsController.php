@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BuyProductsRequest;
 use App\Http\Requests\StoreProductsRequest;
 use App\Http\Requests\UpdateProductsRequest;
 use App\Models\Products;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Http\Request;
 use Throwable;
 
 class ProductsController extends Controller
@@ -22,9 +24,15 @@ class ProductsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
-        $products = $this->product->with('category')->get();
+        $query = $this->product->with('category');
+
+        if ($request->has('category_id')) {
+            $query->where('category_id', $request->input('category_id'));
+        }
+
+        $products = $query->get();
         return response()->json($products, Response::HTTP_OK);
     }
 
@@ -54,7 +62,6 @@ class ProductsController extends Controller
     {
         $product = $this->product->with('category')->findOrFail($id);
         return response()->json($product, Response::HTTP_OK);
-
     }
 
     /**
@@ -88,6 +95,20 @@ class ProductsController extends Controller
     {
         $product = $this->product->findOrFail($id);
         $product->delete();
-        return response()->json(['Menssage' => 'Produto deletado com sucesso']);
+        return response()->json(['Menssage' => 'Produto deletado com sucesso', Response::HTTP_OK]);
+    }
+
+    public function buy(BuyProductsRequest $request, $id): JsonResponse
+    {
+        $data = $request->validated();
+        $amount = $data['amount'];
+        $product = $this->product->findOrFail($id);
+        if ($product->amount < $amount){
+            return response()->json(['Menssage' => 'A quantidade desejada é maior do que temos disponível no momento']);
+        }
+
+        $product->amount -= $amount;
+        $product->save();
+        return response()->json(['Menssage' => 'Compra realizada com sucesso'], Response::HTTP_OK);
     }
 }

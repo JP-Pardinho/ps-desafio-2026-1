@@ -24,19 +24,20 @@ class UpdateProductsRequest extends FormRequest
         return [
             'name' => [
                 'sometimes',
-                'min: 3',
-                'max: 40'
+                'min:3',
+                'max:40'
             ],
 
             'brand' => [
                 'sometimes',
-                'min: 3',
-                'max: 40'
+                'min:3',
+                'max:40'
             ],
 
             'price' => [
                 'sometimes',
-                'decimal: 2',
+                'numeric',
+                'min:1'
             ],
 
             'year' => [

@@ -24,8 +24,8 @@ class StoreCategoryRequest extends FormRequest
         return [
             'name' => [
                 'required',
-                'min: 3',
-                'max: 30',
+                'min:3',
+                'max:30',
             ]
         ];
     }

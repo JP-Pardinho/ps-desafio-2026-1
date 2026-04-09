@@ -23,8 +23,8 @@ class UpdateCategoryRequest extends FormRequest
     {
         return [
             'name' => [
-                'min: 3',
-                'max: 30',
+                'min:3',
+                'max:30',
             ]
         ];
     }

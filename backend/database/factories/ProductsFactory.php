@@ -22,7 +22,7 @@ class ProductsFactory extends Factory
             'brand' => fake()->company(),
             'price' => fake()->randomFloat(2, 1, 100),
             'year' => (int) fake()->year(),
-            'image' => 'products/' . fake()->word() . '.jpg',
+            'image' => 'https://picsum.photos/300/200?random=' . fake()->numberBetween(1, 100),
             'amount' => fake()->numberBetween(1, 100),
             'category_id' => Category::factory(),
         ];

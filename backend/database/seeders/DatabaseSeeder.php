@@ -16,10 +16,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory(10)->create();
-        $categories = Category::factory(10)->create();
-        Products::factory(10)
-            ->recycle($categories)
-            ->create();
+        // $categories = Category::factory(10)->create();
+        // Products::factory(10)->recycle($categories)->create();
 
         $user = User::factory()->create([
             'name' => 'Test User',
