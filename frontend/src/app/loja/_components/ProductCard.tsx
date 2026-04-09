@@ -1,28 +1,33 @@
-import Image from "next/image"
-import Link from "next/link"
-import styles from "./productCard.module.css"
-import { sportsItemType } from "@/types/sportsItem"
+"use client";
+
+import Image from "next/image";
+import styles from "./productCard.module.css";
+import { sportsItemType } from "@/types/sportsItem";
+import { ProductModal } from "./ProductModal";
 
 export default function ProductCard(sportItem: sportsItemType) {
-    const fallbackImage = "https://picsum.photos/300/200?random=" + sportItem?.id 
+  const fallbackImage = "https://picsum.photos/300/200?random=" + sportItem?.id;
+  const priceMask = Number(sportItem?.price).toFixed(2).replace(".", ",");
 
-
-    return (
-        <div className={styles.productCard}>
-            <Link href={`/product/${sportItem?.id}`} className={styles.productLink}>
-                <Image className={styles.productImage} src={sportItem?.image || fallbackImage} alt={sportItem?.name} width={300} height={200} />
-            </Link>
-            <h1 className={styles.productName}>{sportItem?.name}</h1>
-            <p className={styles.productCategory}>Categoria: {sportItem?.category.name}</p>
-            <p className={styles.productBranch}>Marca: {sportItem?.brand}</p>
-            <p className={styles.productYear}>Ano: {sportItem?.year}</p>
-            <p className={styles.productPrice}>R${sportItem?.price}</p>
-            <p className={styles.productStock}>Estoque: {sportItem?.amount}</p>
-            {sportItem?.amount > 0 ? (
-                <button className={styles.productButton}>Comprar</button>
-            ) : (
-                <button className={styles.productButton} disabled>Esgotado</button>
-            )}
+  return (
+    <ProductModal product={sportItem}>
+      <div className={styles.productCard}>
+        <div className={styles.productLink}>
+          <Image
+            className={styles.productImage}
+            src={sportItem?.image || fallbackImage}
+            alt={sportItem?.name}
+            width={300}
+            height={200}
+          />
         </div>
-    )
+        <span className={styles.productStock}>
+          {sportItem?.amount} em estoque
+        </span>
+        <h1 className={styles.productName}>{sportItem?.name}</h1>
+        <p className={styles.productCategory}>{sportItem?.category.name}</p>
+        <p className={styles.productPrice}>R$ {priceMask}</p>
+      </div>
+    </ProductModal>
+  );
 }

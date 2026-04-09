@@ -1,6 +1,6 @@
-import Image from "next/image"
-import styles from "./footer.module.css"
-import { FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa'
+import Image from "next/image";
+import styles from "./footer.module.css";
+import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -55,5 +55,5 @@ export default function Footer() {
         </p>
       </div>
     </footer>
-  )
+  );
 }

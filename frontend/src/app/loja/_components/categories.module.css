@@ -1,26 +1,87 @@
-@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nova+Square&display=swap");
+
+.swiper {
+  padding: 20px 50px 40px 50px;
+  padding-bottom: 40px;
+
+  --swiper-navigation-color: var(--amarelo);
+  --swiper-navigation-size: 30px;
+  --swiper-pagination-color: var(--amarelo);
+}
 
 .product {
-    padding: 40px 0;
+  padding: 40px 0;
 }
 
 .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .title {
-    font-size: 2rem;
-    font-weight: 600;
-    margin: 20px 0px;
-    color: #333;
-    text-align: center;
-    font-family: 'Nova Square', cursive;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 20px 0px;
+  color: #000000;
+  text-align: center;
+  font-family: "Nova Square", cursive;
+  text-transform: uppercase;
 }
 
-.productList {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+.swiperWrapper {
+  padding: 20px 0;
+}
+
+.categoryCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  background-color: #000000;
+  border-bottom: 4px solid var(--amarelo);
+  border-radius: 15px;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Nova Square", cursive;
+  padding: 10px 15px;
+}
+
+.categoryCard:hover {
+  background-color: #222222;
+  border-bottom-color: var(--verde);
+  color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.categoryCard h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  word-break: break-word;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .swiper {
+    padding: 20px 35px 40px 35px;
+    --swiper-navigation-size: 20px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .categoryCard {
+    height: 60px;
+    padding: 8px 10px;
+  }
+
+  .categoryCard h2 {
+    font-size: 0.85rem;
+  }
 }

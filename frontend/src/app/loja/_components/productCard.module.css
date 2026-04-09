@@ -1,93 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Nova+Square&display=swap");
+
 .productCard {
-    background-color: white;
-    border-radius: 18px;
-    box-shadow: 0 10px 0px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    position: relative;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.productCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-image: linear-gradient(to right, var(--verde), var(--azul)) 1;
 }
 
 .productLink {
-    aspect-ratio: 300 / 200;
-    display: block;
-    width: 100%; 
-    max-height: 200px;
-    overflow: hidden; 
-    border-radius: 8px; 
-    margin-bottom: 15px; 
+  aspect-ratio: 300 / 200;
+  display: block;
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 .productImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    object-position: center;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .productName {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 10px 0;
-    color: #333;
+  font-family: "Nova Square", cursive;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 12px 0 8px 0;
+  color: #1a1a1a;
+  line-height: 1.3;
+  min-height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .productCategory {
-    font-size: 0.88rem;
-    color: #666;
-    text-align: center;
-    font-weight: 500;
-}
-
-.productBrand {
-    font-size: 0.88rem;
-    color: #666;
-    text-align: left;
-    font-weight: 500;
-}
-
-.productYear {
-    font-size: 0.88rem;
-    color: #666;
-    margin-bottom: 10px;
-    text-align: center;
-    font-weight: 500;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  font-weight: 500;
+  background-color: #f5f5f5;
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
 
 .productPrice {
-    font-size: 1.5rem;
-    color: #0070f3;
-    margin-bottom: 10px;
-    text-align: center;
-    font-weight: bold;
+  font-family: "Nova Square", cursive;
+  font-size: 1.5rem;
+  color: var(--azul);
+  margin: 12px 0 0 0;
+  text-align: center;
+  font-weight: 700;
+  margin-top: auto;
 }
 
 .productStock {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #dd9c11;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.88rem;
-    font-weight: 600;
-}
-
-.productButton {
-    background-color: #0070f3;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 580;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-.productButton:disabled {
-    background: #ccc;
-    color: #666;
-    cursor:  not-allowed;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: var(--verde);
+  color: #000000;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
 }

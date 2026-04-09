@@ -1,9 +1,9 @@
 .container {
-  max-width: 800px;
-  margin: 0 auto; 
-  padding: 80px 20px; 
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 20px;
   text-align: center;
-  min-height: calc(100vh - 300px); 
+  min-height: calc(100vh - 300px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,10 +44,10 @@
   align-items: center;
   gap: 4px;
   background-color: #1d1d1d;
-  border: 1px solid var(--amarelo); 
+  border: 1px solid var(--amarelo);
   color: #ffffff;
   padding: 10px 20px;
-  border-radius: 50px; 
+  border-radius: 50px;
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
