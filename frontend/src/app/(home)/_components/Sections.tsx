@@ -14,7 +14,7 @@ export default function Sections() {
         BgColor="#294c2d"
       />
       <SectionItem
-        href="/loja/uniformes"
+        href="/loja?category_id=a17f6e29-0fe7-4af8-a7d4-5b8b8e426faf"
         imageSrc="/assets/images/uniformes.png"
         altText="Uniformes"
         label="Uniformes"
@@ -23,7 +23,7 @@ export default function Sections() {
         BgColor="#030c26"
       />
       <SectionItem
-        href="/loja/acessorios"
+        href="/loja?category_id=a17fa610-64f3-4d84-a1d7-0d5106022275"
         imageSrc="/assets/images/acessorios.png"
         altText="Acessórios"
         label="Acessórios"

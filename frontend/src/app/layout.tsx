@@ -1,21 +1,21 @@
-import type { Metadata } from 'next'
-import { Arimo, Nova_Square } from 'next/font/google'
-import '@/app/globals.css'
-import { Providers } from '@/providers/providers'
-import { Toaster as SonnerToaster } from '@/components/sonner'
-import { Toaster } from '@/components/toaster'
+import type { Metadata } from "next";
+import { Arimo, Nova_Square } from "next/font/google";
+import "@/app/globals.css";
+import { Providers } from "@/providers/providers";
+import { Toaster as SonnerToaster } from "@/components/sonner";
+import { Toaster } from "@/components/toaster";
 
-const arimo = Arimo({ subsets: ['latin'] })
+const arimo = Arimo({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Street Brasil',
-  description: 'Loja de artigos esportivos do Brasil.',
+  title: "Street Brasil",
+  description: "Loja de artigos esportivos do Brasil.",
 };
 
 export default async function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="pt-BR">
@@ -27,5 +27,5 @@ export default async function RootLayout({
         </Providers>
       </body>
     </html>
-  )
+  );
 }

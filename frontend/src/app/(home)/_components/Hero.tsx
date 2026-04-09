@@ -3,18 +3,13 @@
 import styles from "./hero.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
+import "swiper/css/bundle";
 
 export default function Hero() {
   return (
     <div className={styles.hero}>
       <Swiper
         modules={[Autoplay]}
-        spaceBetween={0}
-        slidesPerView={1}
-        navigation={true}
-        pagination={{ clickable: true }}
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,
