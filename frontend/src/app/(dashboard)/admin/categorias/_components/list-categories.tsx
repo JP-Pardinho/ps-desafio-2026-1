@@ -1,5 +1,4 @@
 'use client'
-
 import { DashboardContainer } from '@/components/dashboard/dashboard-items'
 import {
   Table,
@@ -22,21 +21,24 @@ import { useEffect, useState } from 'react'
 import { api } from '@/services/api'
 
 export default async function ListCategory() {
-  const [categories, setCategories] = useState<CategoryType[]>([])          
+
+  const [categories, setCategories] = useState<CategoryType[]>([])
 
   useEffect(() => {
-    async function getCategories() {
-      const { response, error } = await api('GET', '/category')
+    async function getCategories(){
+      const {response, error} = await api('GET', '/category')
 
-      if (response) {
+      if(response){
         setCategories(response as CategoryType[])
-      } else {
+      }else {
         console.error(error?.message)
       }
     }
 
     getCategories()
   }, [])
+
+  
 
   if (!categories) {
     return (

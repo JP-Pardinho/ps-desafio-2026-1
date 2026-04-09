@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { destroyCategory } from '@/actions/category'
-import { Button } from '@/components/button'
+import { destroyCategory } from "@/actions/category";
+import { Button } from "@/components/button";
 import {
   Dialog,
   DialogTrigger,
@@ -10,37 +10,38 @@ import {
   DialogHeader,
   DialogDescription,
   DialogFooter,
-} from '@/components/dialog'
-import { useToast } from '@/components/use-toast'
-import { useState } from 'react'
+} from "@/components/dialog";
+import { useToast } from "@/components/use-toast";
+import { useState } from "react";
 
 interface DialogCreateCategoryProps {
-  id: string
-  children: React.ReactNode
+  id: string;
+  children: React.ReactNode;
 }
 
 export function DialogCategoryDelete({
   id,
   children,
 }: DialogCreateCategoryProps) {
-  const [open, setOpen] = useState<boolean>()
-  const { toast } = useToast()
+  const [open, setOpen] = useState<boolean>();
+  const { toast } = useToast();
 
   const submit = async () => {
-    const { error } = await JSON.parse(await destroyCategory(id))
+    const { error } = await JSON.parse(await destroyCategory(id));
 
     if (error) {
       toast({
-        title: 'Não foi possível excluir a categoria!',
-      })
+        title:
+          "Falha ao excluir categoria: verifique se existem produtos vinculados.",
+      });
     } else {
       toast({
-        title: 'Categoria deletada com sucesso!',
-      })
+        title: "Categoria deletada com sucesso!",
+      });
     }
 
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -70,5 +71,5 @@ export function DialogCategoryDelete({
         </form>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

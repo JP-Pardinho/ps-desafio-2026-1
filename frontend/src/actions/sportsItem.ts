@@ -15,7 +15,7 @@ export async function createSportsItem(form: FormData) {
 
 export async function updateSportsItem(form: FormData) {
     const id = form.get('id') as string
-    const res = await api('POST', `products/${id}`, {data: form})
+    const res = await api('POST', `/products/${id}`, {data: form})
 
     if (!res.error) {
         revalidatePath('/admin/produtos')
@@ -29,6 +29,17 @@ export async function destroySportsItem(id: string) {
 
     if (!res.error) {
         revalidatePath('/admin/produtos')
+    }
+
+    return JSON.stringify(res)
+}
+
+export async function buySportsItem(form: FormData) {
+    const id = form.get('id') as string
+    const res = await api('POST', `/products/${id}/buy`, {data: form})
+
+    if (!res.error) {
+        revalidatePath('/loja')
     }
 
     return JSON.stringify(res)

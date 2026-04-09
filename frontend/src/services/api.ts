@@ -97,9 +97,9 @@ export async function api<T = unknown>(
       (e as ResponseErrorType).status === 403
     ) {
       if (isServerSide()) {
-        redirect('/auth/sign-out')
+        redirect('/loja/auth/sign-out')
       } else {
-        window.location.href = '/auth/sign-out'
+        window.location.href = '/loja/auth/sign-out'
       }
     }
 
