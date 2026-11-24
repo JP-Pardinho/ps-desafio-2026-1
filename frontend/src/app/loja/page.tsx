@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Carousel from './_components/Carousel'
 import Products from './_components/Products'
 import Categories from './_components/Categories'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title: 'Street Brasil | Início',
@@ -12,8 +13,12 @@ export default function Home() {
   return (
     <main>
       <Carousel />
-      <Categories />
-      <Products />
+      <Suspense>
+        <Categories />
+      </Suspense>
+      <Suspense>
+        <Products />
+      </Suspense>
     </main>
   )
 }
