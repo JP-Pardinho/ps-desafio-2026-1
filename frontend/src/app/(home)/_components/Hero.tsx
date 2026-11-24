@@ -1,9 +1,9 @@
-"use client";
+'use client'
 
-import styles from "./hero.module.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css/bundle";
+import styles from './hero.module.css'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper/modules'
+import 'swiper/css/bundle'
 
 export default function Hero() {
   return (
@@ -33,5 +33,5 @@ export default function Hero() {
         </SwiperSlide>
       </Swiper>
     </div>
-  );
+  )
 }

@@ -20,25 +20,22 @@ import { DialogCreateCategory } from './dialog-create-category'
 import { useEffect, useState } from 'react'
 import { api } from '@/services/api'
 
-export default async function ListCategory() {
-
+export default function ListCategory() {
   const [categories, setCategories] = useState<CategoryType[]>([])
 
   useEffect(() => {
-    async function getCategories(){
-      const {response, error} = await api('GET', '/category')
+    async function getCategories() {
+      const { response, error } = await api('GET', '/category')
 
-      if(response){
+      if (response) {
         setCategories(response as CategoryType[])
-      }else {
+      } else {
         console.error(error?.message)
       }
     }
 
     getCategories()
   }, [])
-
-  
 
   if (!categories) {
     return (

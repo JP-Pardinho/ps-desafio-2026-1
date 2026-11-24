@@ -1,33 +1,33 @@
-"use client";
+'use client'
 
-import { Button } from "@/components/button";
+import { Button } from '@/components/button'
 import {
   FormFieldsGroup,
   FormField,
   ImageForm,
   handleImageChange,
-} from "@/components/dashboard/form";
-import { DialogFooter } from "@/components/dialog";
-import { Input } from "@/components/input";
-import { Label } from "@/components/label";
+} from '@/components/dashboard/form'
+import { DialogFooter } from '@/components/dialog'
+import { Input } from '@/components/input'
+import { Label } from '@/components/label'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/select";
-import { cn } from "@/lib/utils";
-import { api, ResponseErrorType } from "@/services/api";
-import { CategoryType } from "@/types/category";
-import { sportsItemType } from "@/types/sportsItem";
-import { useEffect, useState } from "react";
-import { useFormStatus } from "react-dom";
+} from '@/components/select'
+import { cn } from '@/lib/utils'
+import { api, ResponseErrorType } from '@/services/api'
+import { CategoryType } from '@/types/category'
+import { sportsItemType } from '@/types/sportsItem'
+import { useEffect, useState } from 'react'
+import { useFormStatus } from 'react-dom'
 
 interface FormFieldsSportsItemProps {
-  sportsItem?: sportsItemType | null;
-  readOnly?: boolean;
-  error?: ResponseErrorType | null;
+  sportsItem?: sportsItemType | null
+  readOnly?: boolean
+  error?: ResponseErrorType | null
 }
 
 export default function FormFieldsSportsItem({
@@ -35,26 +35,26 @@ export default function FormFieldsSportsItem({
   readOnly,
   error,
 }: FormFieldsSportsItemProps) {
-  const { pending } = useFormStatus();
-  const [updateImage, setUpdateImage] = useState<string | undefined>();
-  const [categories, setCategories] = useState<CategoryType[]>([]);
+  const { pending } = useFormStatus()
+  const [updateImage, setUpdateImage] = useState<string | undefined>()
+  const [categories, setCategories] = useState<CategoryType[]>([])
   const [selectedCategory, setSelectedCategory] = useState<CategoryType | null>(
     sportsItem?.category ?? null,
-  );
+  )
 
   useEffect(() => {
     async function getCategories() {
-      const { response, error } = await api("GET", "/category");
+      const { response, error } = await api('GET', '/category')
 
       if (response) {
-        setCategories(response as CategoryType[]);
+        setCategories(response as CategoryType[])
       } else {
-        console.error(error?.message);
+        console.error(error?.message)
       }
     }
 
-    getCategories();
-  }, []);
+    getCategories()
+  }, [])
 
   return (
     <>
@@ -209,5 +209,5 @@ export default function FormFieldsSportsItem({
         </Button>
       </DialogFooter>
     </>
-  );
+  )
 }

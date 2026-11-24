@@ -1,32 +1,32 @@
-"use client";
+'use client'
 
-import { api } from "@/services/api";
-import { CategoryType } from "@/types/category";
-import { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import { useRouter, useSearchParams } from "next/navigation";
-import styles from "./categories.module.css";
-import "swiper/css/bundle";
+import { api } from '@/services/api'
+import { CategoryType } from '@/types/category'
+import { useEffect, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
+import { useRouter, useSearchParams } from 'next/navigation'
+import styles from './categories.module.css'
+import 'swiper/css/bundle'
 
 export default function Categories() {
-  const [categories, setCategories] = useState<CategoryType[]>([]);
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const currentCategory = searchParams.get("category_id");
+  const [categories, setCategories] = useState<CategoryType[]>([])
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const currentCategory = searchParams.get('category_id')
 
   useEffect(() => {
     async function getCategories() {
-      const { response, error } = await api("GET", "/category");
+      const { response, error } = await api('GET', '/category')
 
       if (response) {
-        setCategories(response as CategoryType[]);
+        setCategories(response as CategoryType[])
       } else {
-        console.error(error?.message);
+        console.error(error?.message)
       }
     }
-    getCategories();
-  }, []);
+    getCategories()
+  }, [])
 
   return (
     <section className={styles.product} id="products">
@@ -50,10 +50,10 @@ export default function Categories() {
             <SwiperSlide>
               <div
                 className={styles.categoryCard}
-                onClick={() => router.push("/loja", { scroll: false })}
+                onClick={() => router.push('/loja', { scroll: false })}
                 style={{
-                  cursor: "pointer",
-                  border: !currentCategory ? "2px solid #ffd200" : "none",
+                  cursor: 'pointer',
+                  border: !currentCategory ? '2px solid #ffd200' : 'none',
                 }}
               >
                 <h2>Todos Produtos</h2>
@@ -70,10 +70,11 @@ export default function Categories() {
                     })
                   }
                   style={{
-                    cursor: "pointer",
+                    cursor: 'pointer',
                     border:
-                      currentCategory == String(item.id)
-                        ? "2px solid #ffd200" : "none",
+                      currentCategory === String(item.id)
+                        ? '2px solid #ffd200'
+                        : 'none',
                   }}
                 >
                   <h2>{item.name}</h2>
@@ -84,5 +85,5 @@ export default function Categories() {
         </div>
       </div>
     </section>
-  );
+  )
 }

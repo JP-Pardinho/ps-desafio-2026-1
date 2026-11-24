@@ -62,9 +62,7 @@ export function DialogInformationCategory({
             Visualize as informações detalhadas da categoria abaixo.
           </DialogDescription>
         </DialogHeader>
-        {category && (
-          <FormFieldsCategory category={category} readOnly />
-        )}
+        {category && <FormFieldsCategory category={category} readOnly />}
       </DialogContent>
     </Dialog>
   )

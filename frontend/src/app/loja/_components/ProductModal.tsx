@@ -1,53 +1,53 @@
-"use client";
+'use client'
 
-import { useState, ReactNode } from "react";
-import styles from "./productModal.module.css";
-import Image from "next/image";
-import { sportsItemType } from "@/types/sportsItem";
-import { buySportsItem } from "@/actions/sportsItem";
+import { useState, ReactNode } from 'react'
+import styles from './productModal.module.css'
+import Image from 'next/image'
+import { sportsItemType } from '@/types/sportsItem'
+import { buySportsItem } from '@/actions/sportsItem'
 
 interface ProductModalProps {
-  product: sportsItemType;
-  children: ReactNode;
+  product: sportsItemType
+  children: ReactNode
 }
 
 export function ProductModal({ product, children }: ProductModalProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [quantity, setQuantity] = useState(1);
+  const [isOpen, setIsOpen] = useState(false)
+  const [quantity, setQuantity] = useState(1)
 
-  const openModal = () => setIsOpen(true);
+  const openModal = () => setIsOpen(true)
   const closeModal = () => {
-    setIsOpen(false);
-    setQuantity(1);
-  };
+    setIsOpen(false)
+    setQuantity(1)
+  }
 
-  const fallbackImage = "https://picsum.photos/300/200?random=" + product?.id;
+  const fallbackImage = 'https://picsum.photos/300/200?random=' + product?.id
 
   const totalPrice = (Number(product?.price) * quantity)
     .toFixed(2)
-    .replace(".", ",");
+    .replace('.', ',')
 
   const increment = () => {
-    if (quantity < product.amount) setQuantity((prev) => prev + 1);
-  };
+    if (quantity < product.amount) setQuantity((prev) => prev + 1)
+  }
 
   const decrement = () => {
-    if (quantity > 1) setQuantity((prev) => prev - 1);
-  };
+    if (quantity > 1) setQuantity((prev) => prev - 1)
+  }
 
   const submit = async (form: FormData) => {
-    const response = await buySportsItem(form);
-    const { error } = JSON.parse(response);
+    const response = await buySportsItem(form)
+    const { error } = JSON.parse(response)
 
     if (error) {
-      console.error("Erro ao comprar o produto:", error);
-      alert("Não foi possível realizar a compra.");
+      console.error('Erro ao comprar o produto:', error)
+      alert('Não foi possível realizar a compra.')
     } else {
-      console.log("Produto comprado com sucesso!");
-      closeModal();
-      window.location.reload();
+      console.log('Produto comprado com sucesso!')
+      closeModal()
+      window.location.reload()
     }
-  };
+  }
 
   return (
     <>
@@ -116,7 +116,7 @@ export function ProductModal({ product, children }: ProductModalProps) {
                       className={styles.buyButton}
                       disabled={product?.amount <= 0}
                     >
-                      {product?.amount > 0 ? "Comprar" : "Esgotado"}
+                      {product?.amount > 0 ? 'Comprar' : 'Esgotado'}
                     </button>
                   </div>
                 </form>
@@ -126,5 +126,5 @@ export function ProductModal({ product, children }: ProductModalProps) {
         </div>
       )}
     </>
-  );
+  )
 }

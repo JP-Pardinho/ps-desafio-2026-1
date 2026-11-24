@@ -1,5 +1,5 @@
-import SectionItem from "./SectionItem";
-import styles from "./sections.module.css";
+import SectionItem from './SectionItem'
+import styles from './sections.module.css'
 
 export default function Sections() {
   return (
@@ -41,5 +41,5 @@ export default function Sections() {
         BgColor="#294c2d"
       />
     </div>
-  );
+  )
 }

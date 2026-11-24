@@ -1,12 +1,12 @@
-import { CategoryType } from "./category";
+import { CategoryType } from './category'
 
 export type sportsItemType = {
-    id: string
-    name: string
-    brand: string
-    price: number | string
-    year: number | string
-    image: string
-    amount: number
-    category: CategoryType
+  id: string
+  name: string
+  brand: string
+  price: number | string
+  year: number | string
+  image: string
+  amount: number
+  category: CategoryType
 }

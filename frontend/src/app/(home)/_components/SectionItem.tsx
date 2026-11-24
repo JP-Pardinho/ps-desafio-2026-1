@@ -1,14 +1,14 @@
-import Link from "next/link";
-import styles from "./sections.module.css";
+import Link from 'next/link'
+import styles from './sections.module.css'
 
 interface SectionItemProps {
-  href: string;
-  imageSrc: string;
-  altText: string;
-  label: string;
-  itemText: string;
-  Color: string;
-  BgColor: string;
+  href: string
+  imageSrc: string
+  altText: string
+  label: string
+  itemText: string
+  Color: string
+  BgColor: string
 }
 
 export default function SectionItem({
@@ -21,9 +21,9 @@ export default function SectionItem({
   BgColor,
 }: SectionItemProps) {
   const colorStyle = {
-    "--hover-bg": BgColor,
-    "--text-color": Color,
-  } as React.CSSProperties;
+    '--hover-bg': BgColor,
+    '--text-color': Color,
+  } as React.CSSProperties
 
   return (
     <Link href={href} className={styles.cell} style={colorStyle}>
@@ -35,5 +35,5 @@ export default function SectionItem({
         <span className={styles.label}>{label}</span>
       </div>
     </Link>
-  );
+  )
 }

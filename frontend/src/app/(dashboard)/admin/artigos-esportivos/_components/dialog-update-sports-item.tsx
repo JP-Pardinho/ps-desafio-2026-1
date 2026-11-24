@@ -21,7 +21,10 @@ interface DialogUpdateSportsItemProps {
   children: React.ReactNode
 }
 
-export function DialogUpdateSportsItem({ id, children }: DialogUpdateSportsItemProps) {
+export function DialogUpdateSportsItem({
+  id,
+  children,
+}: DialogUpdateSportsItemProps) {
   const [sportsItem, setSportsItem] = useState<sportsItemType | null>(null)
   const [open, setOpen] = useState<boolean>()
   const [error, setError] = useState<ResponseErrorType | null>(null)
@@ -56,7 +59,7 @@ export function DialogUpdateSportsItem({ id, children }: DialogUpdateSportsItemP
   const submit = async (form: FormData) => {
     const newForm = await filterFormData(form)
 
-    const { error } = await JSON.parse(await updateSportsItem(newForm)) 
+    const { error } = await JSON.parse(await updateSportsItem(newForm))
 
     if (error) {
       setError(error)

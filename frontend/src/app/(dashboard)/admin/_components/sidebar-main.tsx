@@ -11,13 +11,13 @@ import {
   SidebarHeaderLogo,
   UserDropdown,
 } from '@/components/dashboard/sidebar'
-import { LuHome, LuLogOut, LuUsers } from 'react-icons/lu'
+import { LuLogOut, LuUsers } from 'react-icons/lu'
 import { DropdownMenuItem } from '@/components/dropdown-menu'
 import { signOut, useSession } from 'next-auth/react'
 import logo from '@/assets/img/logo.jpeg'
-import { TbCategory } from "react-icons/tb";
-import { VscGraph } from "react-icons/vsc";
-import { MdOutlineSportsHandball } from "react-icons/md";
+import { TbCategory } from 'react-icons/tb'
+import { VscGraph } from 'react-icons/vsc'
+import { MdOutlineSportsHandball } from 'react-icons/md'
 
 export function SidebarMain() {
   const session = useSession()

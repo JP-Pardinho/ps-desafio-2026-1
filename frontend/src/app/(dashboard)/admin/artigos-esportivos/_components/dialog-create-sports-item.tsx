@@ -19,7 +19,9 @@ interface DialogCreateSportsItemProps {
   children: React.ReactNode
 }
 
-export function DialogCreateSportsItem({ children }: DialogCreateSportsItemProps) {
+export function DialogCreateSportsItem({
+  children,
+}: DialogCreateSportsItemProps) {
   const [open, setOpen] = useState<boolean>()
   const [error, setError] = useState<ResponseErrorType | null>(null)
   const { toast } = useToast()

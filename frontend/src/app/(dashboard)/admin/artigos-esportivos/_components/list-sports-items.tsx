@@ -21,7 +21,7 @@ import { DialogInformationSportsItem } from './dialog-information-sports-item'
 import { DialogCreateSportsItem } from './dialog-create-sports-item'
 import { useEffect, useState } from 'react'
 
-export default async function ListSportsItems() {
+export default function ListSportsItems() {
   const [sportsItems, setSportsItems] = useState<sportsItemType[]>([])
 
   useEffect(() => {
@@ -75,14 +75,14 @@ export default async function ListSportsItems() {
                 <TableCell>
                   <TabbleCellImage src={sportsItem.image} />
                 </TableCell>
-                
+
                 <TableCell>{sportsItem.name}</TableCell>
                 <TableCell>{sportsItem.brand}</TableCell>
                 <TableCell>{sportsItem.price}</TableCell>
                 <TableCell>{sportsItem.year}</TableCell>
                 <TableCell>{sportsItem.amount}</TableCell>
                 <TableCell>{sportsItem.category.name}</TableCell>
-                
+
                 <TableCell className="flex justify-end gap-2">
                   <DialogInformationSportsItem id={sportsItem.id}>
                     <Button variant="default-inverse" size="icon">
